@@ -3,7 +3,7 @@ module LogsViewer
 
     def initialize(app)
       @app = app
-      @lines = LogsViewer::Config.number_lines
+      @number_lines = LogsViewer::Config.number_lines
       @log_dir = LogsViewer::Config.log_dir
     end
 
@@ -14,11 +14,13 @@ module LogsViewer
           lines: []
         }
 
-        if(env["QUERY_STRING"]=~/file/ )
-          log_name = env["QUERY_STRING"].clone
-          log_name = log_name.gsub(/file=/, '')
+        params = Rack::Utils.parse_nested_query(env["QUERY_STRING"])
 
-          @data[:lines] = `tail -n "#{@lines}" "#{log_name}"`
+        if params.has_key? 'file'
+          log_file = params['file']
+          number_lines = (params.has_key? 'number_lines') ? params['number_lines'] : @number_lines
+
+          @data[:lines] = `tail -n "#{number_lines}" "#{log_file}"`
           [200,{"Content-Type"=>"text/html"},[view_generate(@data)]]
         else
           [200,{"Content-Type"=>"text/html"},[view_generate(@data)]]
