@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.description   = %q{ This gem was developed to make possible the visualization of the application logs in the browser.}
 
   spec.add_dependency "bundler"
+  spec.add_dependency "rack", "~> 1.5"
 
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec", "~> 3.0"

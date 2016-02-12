@@ -1,4 +1,5 @@
 require "logs_viewer/version"
+require "rack"
 
 module LogsViewer
   # Your code goes here...
