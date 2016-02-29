@@ -43,7 +43,7 @@ end
 After creating the initialization file and add the rack, go to your project the path /logs: (http://your-app:port/logs)
 
 #### Example display
-https://bitbucket.org/repo/rbj7zp/images/2284852797-gem-logs-viewer.png
+https://bitbucket-assetroot.s3.amazonaws.com/repository/rbj7zp/2284852797-gem-logs-viewer.png?Signature=QzG1uiwUymqnxyKR9xpDpRJDlWo%3D&Expires=1456778743&AWSAccessKeyId=AKIAIWY5XSVPZPDQYRQQ
 
 ## Development
 
